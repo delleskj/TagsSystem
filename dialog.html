@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <base target="_blank">
+  </head>  
+  
+  <body>
+  
+  <script>
+  // Prevent forms from submitting.
+      function preventFormSubmit() {
+        var forms = document.querySelectorAll('form');
+        for (var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener('submit', function(event) {
+            event.preventDefault();
+          });
+        }
+      }
+      window.addEventListener('load', preventFormSubmit);
+
+      function closeSubmitForm() {
+        google.script.host.close();
+      }
+
+  </script>
+  
+<div> 
+  <form id="selectForm" name="multiselectForm" onsubmit="google.script.run.withSuccessHandler(closeSubmitForm).fillCellWithSelectedValues(this)">
+   <div id="selectValues">
+     loading...
+   </div>
+   <input type="submit" class="action" value="Set tags" id="SubmitButton"/>
+   <input type="button" value="Cancel" onClick="google.script.host.close()" />
+  </form>
+</div>
+
+
+    
+
+
+  </body>
+  
+
+  
+</html>
+
+<script>
+function showMultiselectOptions(selectData){
+  var valueList = document.getElementById("selectValues");
+  
+  valueList.innerHTML = "";
+  
+  if(Object.prototype.toString.call(selectData) === '[object Array]'){
+    for (var i = 0; i < selectData.length; i++) {
+     valueList.innerHTML += '<input type="checkbox" name="select'+i+'" id="select'+i+'" value="'+selectData[i]+'"><label for="select'+i+'">'+selectData[i]+'</label><br>';
+    }
+  }else{
+    valueList.innerHTML = '<p class="error">Failed to get <a href="https://support.google.com/docs/answer/63175?co=GENIE.Platform%3DDesktop&hl=en">Named ranges</a> click <b>Addons > Tags System > Instructions </b> for help.</p>';
+    document.getElementById("SubmitButton").style.display = "none";
+  }
+  
+
+}
+
+
+(function() {
+   // your page initialization code here
+   // the DOM will be available here
+  google.script.run.withSuccessHandler(showMultiselectOptions).getMultiSelectValues();
+})();
+
+
+
+</script>
