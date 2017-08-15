@@ -7,14 +7,11 @@ copy all 3 files, give them same names like in the repository, case sensitiv!
 
 ## Instructions to use:
 (adds an extra Menu called Tags.)
-
-* Create a Named range containing all the Tags you want to use.
-
-..* Rightclick in a cell and select Define named range... or click Data > Named ranges.
-
-* Make sure the range is number 1 in the list (on top).
-
-* Select the cell where you want to insert the tags.
-From the Tags menu choose Set Tags.
-
-* Hint: the inserted tags are just text values you can use all spreadsheet power to order/ sort them.
+<ul>
+    <li><p>Create a <a href="https://support.google.com/docs/answer/63175?co=GENIE.Platform%3DDesktop&hl=en">Named range</a> containing all the Tags you want to use. </p></li>
+    <ul><li><p>Rightclick in a cell and select <b>Define named range...</b> or click <b>Data > Named ranges </b>.</p></li></ul>
+    <li><p>Make sure the range is number 1 in the list (on top).</p></li>
+    <li><p>Select the cell where you want to insert the tags.</p></li>
+    <li><p>From the <b>Tags System</b> menu click <b>Set Tags</b>.</p></li>
+    <li><p><b>Hint:</b> the inserted tags are just text values you can use all spreadsheet power to order/ sort them.</p></li>
+</ul>
